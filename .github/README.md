@@ -6,6 +6,15 @@ This repo tracks dotfiles and configuration files. It should allow for configs a
 
 To interact and update config files use `config` (alias) instead of `git`.
 
+## To Do
+
+* fill out README further
+    * Structure
+    * Installing on new system
+* add sesh configs
+* zsh configs (oh-my-zsh)
+* add Neovim config(s)
+
 ## Structure
 
 ...
