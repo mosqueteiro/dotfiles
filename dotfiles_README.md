@@ -2,6 +2,10 @@
 
 This repo tracks dotfiles and configuration files. It should allow for configs and settings to be portable between machines. This repo is based off of some different strategies (see Resources).  
 
+## Usage
+
+To interact and update config files use `config` (alias) instead of `git`.
+
 ## Structure
 
 ...
