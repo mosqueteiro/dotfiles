@@ -18,17 +18,15 @@ To interact and update config files use `config` (alias) instead of `git`.
 
 ## Structure
 
-```
-dotfiles ($HOME)
-├── .github
-│   └── README.md
-├── .gitignore
-├── .config
-│   └── sesh
-│       └── sesh.toml
-├── .tmux.conf
-├── LICENSE
-```
+dotfiles ($HOME)  
+├── .github  
+│   └── README.md  
+├── .gitignore  
+├── .config  
+│   └── sesh  
+│       └── sesh.toml  
+├── .tmux.conf  
+├── LICENSE  
 
 # Initial setup
 
