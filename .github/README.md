@@ -25,7 +25,7 @@ dotfiles ($HOME)
 ├── .gitignore
 ├── .config
 │   └── sesh
-│       └── sesh
+│       └── sesh.toml
 ├── .tmux.conf
 ├── LICENSE
 ```
