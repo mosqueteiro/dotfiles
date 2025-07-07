@@ -21,8 +21,11 @@ To interact and update config files use `config` (alias) instead of `git`.
 ```
 dotfiles ($HOME)
 ├── .github
-│   └── README.md
+│   └── README.md
 ├── .gitignore
+├── .config
+│   └── sesh
+│       └── sesh
 ├── .tmux.conf
 ├── LICENSE
 ```
