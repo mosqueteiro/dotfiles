@@ -11,7 +11,8 @@ To interact and update config files use `config` (alias) instead of `git`.
 * fill out README further
     * Structure
     * Installing on new system
-* add sesh configs
+    * Requirements section
+* ~~add sesh configs~~
 * zsh configs (oh-my-zsh)
 * add Neovim config(s)
 

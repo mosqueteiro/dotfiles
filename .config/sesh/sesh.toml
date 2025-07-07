@@ -1,0 +1,29 @@
+# Custom configured sessions for sesh
+
+
+# The telescope command doesn't seem to work this way
+# [default_session]
+# startup_command = "nvim -c ':Telescope find_files'"
+
+
+[[session]]
+name = "Home"
+path = "~"
+
+# dotfiles and configs
+[[session]]
+name = "dotfiles"
+path = "~"
+startup_command = "nvim .github/README.md"
+windows = [ "config" ]
+
+[[window]]
+name = "config"
+startup_script = "config status"
+
+
+[[session]]
+name = "NeoVIM config"
+path = "~/.config/nvim"
+startup_command = "nvim"
+
