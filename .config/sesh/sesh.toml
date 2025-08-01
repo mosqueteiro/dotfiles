@@ -10,7 +10,7 @@
 name = "Home"
 path = "~"
 
-# dotfiles and configs
+
 [[session]]
 name = "dotfiles"
 path = "~"
@@ -26,4 +26,10 @@ startup_script = "config status"
 name = "NeoVIM config"
 path = "~/.config/nvim"
 startup_command = "nvim"
+
+
+# Generic windows
+[[window]]
+name = "git"
+startup_script = "git fetch && git status"
 
