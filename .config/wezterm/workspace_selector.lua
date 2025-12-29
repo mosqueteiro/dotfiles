@@ -9,8 +9,8 @@ local module = {}
 -- TODO: store last workspace and assign `LEADER L` to switch to last workspace
 
 --- Workspace selector callback function. Use with as an action.
--- @param window The current window
--- @param pane The current pane
+---@param window wezterm.Window The current window
+---@param pane wezterm.Pane The current pane
 function module.workspace_selector_callback(window, pane)
 	local choices = {}
 

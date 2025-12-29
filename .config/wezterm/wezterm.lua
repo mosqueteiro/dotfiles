@@ -4,13 +4,11 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 local workspace_selector = require("workspace_selector")
+local which_key = require("which_key")
 
--- TODO: Learn and/or adapt copy+pasta and scroll back with keyboard
--- TODO: Check if unix_domains even needed here.
--- TODO: Setup a whichkey type of functionality
+-- TODO: Add wezterm setup to dotfiles
 -- TODO: Can InputSelector be inverted?
 -- TODO: Investigate if there is a way to have a smaller window for Input selector (like command palette)
--- TODO: Add wezterm setup to dotfiles
 --
 -- Skip:
 -- TODO: Make a few pre-configured workspaces (e.g. dotfiles, neovim config, home)
@@ -43,6 +41,11 @@ end)
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
 
 config.keys = {
+	-- {	-- Not working, yet
+	-- 	key = "Space",
+	-- 	mods = "LEADER",
+	-- 	action = act.ShowLauncherArgs({ flags = "FUZZY|KEY_ASSIGNMENTS", title = "Keys" }),
+	-- },
 	{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "|", mods = "LEADER|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	-- Navigate Panes
@@ -86,13 +89,11 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action_callback(workspace_selector.workspace_selector_callback),
 	},
-}
-
-config.unix_domains = {
 	{
-		name = "unix",
+		key = "?",
+		mods = "LEADER|SHIFT",
+		action = wezterm.action_callback(which_key.which_key_callback),
 	},
 }
-config.default_gui_startup_args = { "connect", "unix" }
 
 return config
