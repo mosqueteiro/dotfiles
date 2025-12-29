@@ -90,7 +90,12 @@ end
 
 -- Parse key bindings from wezterm show-keys --lua output
 local function parse_key_bindings()
-	local success, stdout, stderr = wezterm.run_child_process({ "wezterm", "show-keys", "--lua" })
+	-- local success, stdout, stderr = wezterm.run_child_process({ "env" })
+	-- wezterm.log_info("Success: " .. tostring(success) .. " stdout: " .. stdout .. " stderr: " .. stderr)
+	-- local success, stdout, stderr = wezterm.run_child_process({ "ls", "-l", wezterm.executable_dir })
+	-- wezterm.log_info("Success: " .. tostring(success) .. " stdout: " .. stdout .. " stderr: " .. stderr)
+	local success, stdout, stderr =
+		wezterm.run_child_process({ wezterm.executable_dir .. "/wezterm", "show-keys", "--lua" })
 
 	if not success then
 		wezterm.log_error("Failed to get key bindings: " .. (stderr or "unknown error"))

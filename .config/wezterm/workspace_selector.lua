@@ -21,7 +21,7 @@ function module.workspace_selector_callback(window, pane)
 
 	-- Add zoxide paths
 	local success, stdout, stderr =
-		wezterm.run_child_process({ "/home/mosqueteiro/.pixi/bin/zoxide", "query", "--list" })
+		wezterm.run_child_process({ wezterm.home_dir .. "/.pixi/bin/zoxide", "query", "--list" })
 	if success then
 		for path in stdout:gmatch("[^\r\n]+") do
 			local label = path:gsub(wezterm.home_dir, "~")
