@@ -6,9 +6,10 @@ local act = wezterm.action
 local workspace_selector = require("workspace_selector")
 local which_key = require("which_key")
 
--- TODO: Add wezterm setup to dotfiles
+-- TODO: Keep track of last workspace and assign `LEADER L` to switch to last workspace
 -- TODO: Can InputSelector be inverted?
 -- TODO: Investigate if there is a way to have a smaller window for Input selector (like command palette)
+-- TODO: Fix which-key group assignment
 --
 -- Skip:
 -- TODO: Make a few pre-configured workspaces (e.g. dotfiles, neovim config, home)
