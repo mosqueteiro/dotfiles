@@ -3,10 +3,9 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
 
-local workspace_selector = require("workspace_selector")
+local workspace_manager = require("workspace_manager")
 local which_key = require("which_key")
 
--- TODO: Keep track of last workspace and assign `LEADER L` to switch to last workspace
 -- TODO: Can InputSelector be inverted?
 -- TODO: Investigate if there is a way to have a smaller window for Input selector (like command palette)
 -- TODO: Fix which-key group assignment
@@ -26,8 +25,11 @@ config.colors = {
 }
 config.font = wezterm.font("DaddyTimeMono Nerd Font")
 
---- Display workspace name
+--- Display workspace name and initialize workspace history
 wezterm.on("update-status", function(window, pane)
+	-- Initialize workspace history on first run
+	workspace_manager:sync_with_active_workspaces()
+
 	local cws = wezterm.mux.get_active_workspace()
 	-- wezterm.log_info("current workspace: " .. cws)
 	window:set_left_status(wezterm.format({
@@ -88,8 +90,9 @@ config.keys = {
 	{
 		key = "K",
 		mods = "LEADER",
-		action = wezterm.action_callback(workspace_selector.workspace_selector_callback),
+		action = wezterm.action_callback(workspace_manager.workspace_selector_callback),
 	},
+	{ key = "L", mods = "LEADER", action = wezterm.action_callback(workspace_manager.switch_to_last_workspace) },
 	{
 		key = "?",
 		mods = "LEADER|SHIFT",
