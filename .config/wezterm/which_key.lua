@@ -179,4 +179,3 @@ function module.which_key_callback(window, pane)
 end
 
 return module
-

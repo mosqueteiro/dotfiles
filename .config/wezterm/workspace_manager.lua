@@ -22,14 +22,6 @@ local act = wezterm.action
 
 local module = {}
 
---- Initialize workspace history with current and all active workspaces
-module.workspaces = {}
-for _, wp_name in ipairs(wezterm.GLOBAL.workspace_history) do
-	table.insert(module.workspaces, wp_name)
-end
-module:sync_with_active_workspaces()
-wezterm.GLOBAL.workspace_history = module.workspaces
-
 --- Checks if an item is in a table
 ---@param list table
 ---@param item any
@@ -201,5 +193,13 @@ function module.workspace_selector_callback(window, pane)
 		pane
 	)
 end
+
+--- Initialize workspace history with current and all active workspaces
+module.workspaces = {}
+for _, wp_name in ipairs(wezterm.GLOBAL.workspace_history or {}) do
+	table.insert(module.workspaces, wp_name)
+end
+module:sync_with_active_workspaces()
+wezterm.GLOBAL.workspace_history = module.workspaces
 
 return module
