@@ -37,7 +37,6 @@ end
 
 --- Sync workspaces list with currently active workspaces
 function module:sync_with_active_workspaces()
-	wezterm.log_info("Syncing with active workspaces.")
 	local active_workspaces = wezterm.mux.get_workspace_names()
 
 	for _, workspace in ipairs(active_workspaces) do
@@ -60,10 +59,7 @@ end
 --- Add workspace to workspaces list (move to front if exists, add to front if new)
 ---@param workspace_name string The name of the workspace to add to workspaces list
 function module:push_workspace(workspace_name)
-	wezterm.log_info("push workspace", workspace_name)
-
 	-- Remove workspace if it already exists in the list (linear search)
-	wezterm.log_info("Checking if workspace already in list to move")
 	for i = 1, #self.workspaces do
 		wezterm.log_info("Index: " .. i)
 		if self.workspaces[i] == workspace_name then
@@ -72,8 +68,6 @@ function module:push_workspace(workspace_name)
 		end
 	end
 
-	-- Insert at position 1 (most recent/MRU)
-	wezterm.log_info("Inserting " .. workspace_name .. " into list")
 	table.insert(self.workspaces, 1, workspace_name)
 	wezterm.GLOBAL.workspace_history = self.workspaces
 end
